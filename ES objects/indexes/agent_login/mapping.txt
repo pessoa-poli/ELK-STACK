@@ -1,0 +1,92 @@
+{
+  "agent_login" : {
+    "mappings" : {
+      "properties" : {
+        "@timestamp" : {
+          "type" : "date"
+        },
+        "@version" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "agentid" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "agentid_spaceless" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "login_duration" : {
+          "type" : "long"
+        },
+        "matricula" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "nchamadas" : {
+          "type" : "long"
+        },
+        "queue" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "sessionid" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
+        },
+        "temp_disp" : {
+          "type" : "long"
+        },
+        "tempo_atendimento" : {
+          "type" : "long"
+        },
+        "tempo_pausado" : {
+          "type" : "long"
+        },
+        "tempo_retencao" : {
+          "type" : "long"
+        },
+        "timestamp_att" : {
+          "type" : "date"
+        },
+        "timestamp_login" : {
+          "type" : "date"
+        },
+        "timestamp_logout" : {
+          "type" : "date"
+        }
+      }
+    }
+  }
+}

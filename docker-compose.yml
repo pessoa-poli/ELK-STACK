@@ -1,0 +1,39 @@
+version: '3.4'
+services:
+  cam_bi_elastic:
+    container_name: cambielastic
+    hostname: cam_bi_elastic
+    restart: always
+    networks:
+      - default
+    environment:
+      discovery.type: single-node
+      TZ: America/Sao_Paulo
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.10.1
+    ports:
+      - 9200:9200
+    volumes:
+      - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - ./elastic-certificates.p12:/usr/share/elasticsearch/config/elastic-certificates.p12
+      - /dados/data/cam_bi_elastic/elasticsearch:/usr/share/elasticsearch/data
+
+  cam_bi_kibana:
+   container_name: cam_bi_kibana
+   hostname: cam_bi_kibana
+   networks:
+     - default
+   environment:
+     TZ: America/Sao_Paulo
+   depends_on:
+     - cam_bi_elastic
+   image: docker.elastic.co/kibana/kibana:7.10.1
+   ports:
+     - 5601:5601
+   volumes:
+     - ./kibana.yml:/usr/share/kibana/config/kibana.yml
+   command: sh -c './bin/kibana-plugin install https://github.com/fbaligand/kibana-enhanced-table/releases/download/v1.13.0/enhanced-table-1.13.0_7.10.1.zip || echo Plugin already installed && exec /usr/local/bin/kibana-docker'
+
+networks:
+  default:
+    external:
+      name: camboxNet

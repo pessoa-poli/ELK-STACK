@@ -1,0 +1,19 @@
+#########################
+##### Lista de Dashboards
+#########################
+
+> * [ ]  Dashboard dos Agentes / Chamadas tempo real
+> * [ ]  Dashboard Atendimento dos Agentes 
+> * [ ]  Dashbord Transbordo
+> * [ ]  Dashboard Call Fail
+> * [ ]  dashboard_mostrador_status_dos_agentes
+> * [ ]  Dashboard CDR
+> * [ ]  Dashboard Estado Mais Recente dos Agentes
+> * [ ]  Dashboard URA
+> * [ ]  Dashboard_Filas
+> * [ ]  Dashboard Satisfação
+> * [ ]  Dashboard Filas - Layout V2
+> * [ ]  Dashboard CEL
+> * [ ]  Dashboard Status Agentes
+> * [ ]  Dashboard Analítico de Chamadas
+> * [ ]  Dashboard Atendimento dos Agentes a cada 30m

@@ -1,0 +1,30 @@
+About JDBC drive for logstash
+https://www.youtube.com/watch?t=3&v=62E3hAx_G9c&feature=emb_imp_woyt
+
+
+Refering to a field by name to build indexes based on input data:
+https://www.elastic.co/guide/en/logstash/current/event-dependent-configuration.html
+
+Adding the current date to an indexname in output
+https://discuss.elastic.co/t/indexname-with-current-date/51413
+
+Example-file of docker-compose.yml of ELK stack
+https://github.com/deviantony/docker-elk/blob/main/docker-compose.yml
+https://cursos.alura.com.br/forum/topico-solucao-unknown-initial-character-set-index-255-76167
+
+How to set the path to the file where sql_last_value is stored (for persistance):
+https://stackoverflow.com/questions/62346721/logstash-with-jdbc-driver-how-to-set-an-initial-value-for-sql-last-value
+
+reference on composing the JDBC file
+https://github.com/dimMaryanto93/docker-logstash-input-jdbc
+
+Resolução do erro: java.sql.SQLException: Unknown initial character set index '255' received from server. Initial client character set can be forced via the 'characterEncoding' property.
+https://cursos.alura.com.br/forum/topico-solucao-unknown-initial-character-set-index-255-76167
+
+Resolução do erro de SSLHandSHakeException: No appropriate protocol
+https://stackoverflow.com/questions/67332909/why-can-java-not-connect-to-mysql-5-7-after-the-latest-jdk-update-and-how-should
+
+Qual versão do mysql-connector-java usar? 5.1.44
+Fonte: https://cursos.alura.com.br/forum/topico-solucao-unknown-initial-character-set-index-255-76167
+
+[account-code]

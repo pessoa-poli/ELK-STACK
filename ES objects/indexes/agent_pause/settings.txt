@@ -1,0 +1,16 @@
+{
+  "agent_pause" : {
+    "settings" : {
+      "index" : {
+        "creation_date" : "1622224700538",
+        "number_of_shards" : "1",
+        "number_of_replicas" : "1",
+        "uuid" : "iIKHYMSlT9G1nh3lIKNdPg",
+        "version" : {
+          "created" : "7060299"
+        },
+        "provided_name" : "agent_pause"
+      }
+    }
+  }
+}

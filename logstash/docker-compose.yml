@@ -1,0 +1,36 @@
+version: '3.4'
+services:
+  cam_bi_logstash:
+    container_name: cam_bi_logstash
+    hostname: cam_bi_logstash
+    restart: always
+    # network_mode: "host"
+    networks:
+     - default
+    environment:
+      LOGSTASH_JDBC_DRIVER_JAR_LOCATION: "/vendor/jar/jdbc/mysql-connector-java-5.1.44.jar"
+      ELASTICSEARCH_URI: "cambielastic:9200"
+      MYSQL_URI: "jdbc:mysql://mysql1:3306/logstash?enabledTLSProtocols=TLSv1.2"
+      TZ: America/Sao_Paulo
+      ES_JAVA_OPTS: "-Xms2048m -Xmx2048m"
+    image: "docker.elastic.co/logstash/logstash:8.3.2@sha256:32b879859f190a422dd2d55ae63d8dad2c005aa2d5f5f9c351f3c22770649942"
+    volumes:
+      - ./config/logstash.yml:/usr/share/logstash/config/logstash.yml
+      - ./config/pipelines.yml:/usr/share/logstash/config/pipelines.yml
+      - ./pipeline:/usr/share/logstash/pipeline/
+      - ./mysql-connector-java-5.1.44.jar:/vendor/jar/jdbc/mysql-connector-java-5.1.44.jar
+      # - /dados/data/logstash:/usr/share/logstash/data
+    logging:
+      options:
+        max-size: 1g
+
+volumes:
+  _data:
+    driver: local
+  data_logstash:
+    driver: local
+
+networks:
+  default:
+    external:
+      name: camboxNet
