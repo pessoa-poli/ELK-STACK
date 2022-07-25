@@ -1,0 +1,42 @@
+# Criando usuários e roles via CURL
+curl --user 'user:password' -X PUT "localhost:5601/api/security/role/mrpizza" -H 'kbn-xsrf: true' -H 'Content-Type: application/json' -d'
+{
+  "metadata" : {
+    "version" : 1
+  },
+  "elasticsearch": {
+    "cluster" : [ ],
+    "indices" : [{
+        "names" : [
+          "*mrpizza*"
+        ],
+        "privileges" : [
+          "read"
+        ],
+        "allow_restricted_indices" : false
+      }]
+  },
+  "kibana": [
+    {
+      "base": [],
+      "feature": {
+        "dashboard": ["read"],
+        "discover": ["read"]
+      },
+      "spaces": [
+        "cliente"
+      ]
+    }
+  ]
+}
+'
+
+
+curl --user 'user:password' -X POST "localhost:9200/_security/user/mrpizza?pretty" -H 'Content-Type: application/json' -d'
+{
+  "password" : "bi.mrpizza",
+  "roles" : [ "cliente" ],
+  "full_name" : "mrpizza",
+  "email" : ""
+}
+'
