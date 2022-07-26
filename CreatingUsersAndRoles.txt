@@ -1,0 +1,46 @@
+################################################
+#### Criação de roles
+################################################
+curl --user 'user:password' -X PUT "localhost:5601/api/security/role/$1" -H 'kbn-xsrf: true' -H 'Content-Type: application/json' -d'
+{
+  "metadata" : {
+    "version" : 1
+  },
+  "elasticsearch": {
+    "cluster" : [ ],
+    "indices" : [{
+        "names" : [
+          "*-$1-*"
+        ],
+        "privileges" : [
+          "read"
+        ],
+        "allow_restricted_indices" : false
+      }]
+  },
+  "kibana": [
+    {
+      "base": [],
+      "feature": {
+        "dashboard": ["read"],
+        "discover": ["read"]
+      },
+      "spaces": [
+        "cliente"
+      ]
+    }
+  ]
+}
+'
+
+################################################
+#### Criação de users
+################################################
+curl --user 'user:password' -X POST "localhost:9200/_security/user/$1?pretty" -H 'Content-Type: application/json' -d'
+{
+  "password" : "bi.$1",
+  "roles" : [ "cliente" ],
+  "full_name" : "$1",
+  "email" : ""
+}
+'
