@@ -1,0 +1,6 @@
+curl -XPOST --user 'user:password' localhost:5601/s/cliente/api/saved_objects/index-pattern/superindexpattern -H 'kbn-xsrf: true' -H 'Content-Type: application/json' -d '
+{
+  "attributes": {
+    "title": "superindexpattern-*"
+  }
+}'
